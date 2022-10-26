@@ -1,3 +1,40 @@
+# Database architecture for this project
+A user can create events. A user can attend many events. An event can be attended by many users. Events take place at a specific date and at a location (which you can just store as a string, like “Andy’s House”)
+**This is def missing some implementation details but it's a scaffold, and I have the basic idea**
+
+## User
+
+- Relations
+    - has_many :events, inverse_of: :organiser
+    - has_and_belongs_to_many :attended_events
+
+- Columns
+    - user_id PRIMARY KEY
+    - username STRING
+    - email STRING
+    - pwd STRING
+
+## Event
+
+- Relations
+    - belongs_to :organiser, class_name: "User",
+                             foreign_key: "user_id",
+                             inverse_of: :events
+    - has_and_belongs_to_many :attendees
+
+- Columns
+    - event_id PRIMARY KEY
+    - organiser FOREIGN KEY
+    - location STRING
+    - description TEXT
+    - date STRING
+
+## attendees_events (join table)
+
+- Columns
+    - attendee FOREIGN KEY
+    - event FOREIGN KEY
+
 # Warm up database architectures
 
 ## Pet-sitting
