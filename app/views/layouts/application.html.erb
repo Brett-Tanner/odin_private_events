@@ -11,6 +11,14 @@
   </head>
 
   <body>
+    <div id="header">
+      <%= link_to "Sign up", new_user_registration_path %>
+    </div>
+
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+
     <%= yield %>
+
   </body>
 </html>

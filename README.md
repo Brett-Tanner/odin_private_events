@@ -10,7 +10,7 @@ A user can create events. A user can attend many events. An event can be attende
 
 - Columns
     - user_id PRIMARY KEY
-    - username STRING
+    - name STRING
     - email STRING
     - pwd STRING
 
