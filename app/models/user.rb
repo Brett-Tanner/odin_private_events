@@ -4,6 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  has_many :events, inverse_of: "organiser", 
+                    foreign_key: "organiser_id"
+
   validates :name, presence: true
   validates :name, uniqueness: true
   validates :name, length: {in: 2..20}
