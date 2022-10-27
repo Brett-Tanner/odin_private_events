@@ -25,9 +25,10 @@ A user can create events. A user can attend many events. An event can be attende
 - Columns
     - event_id PRIMARY KEY
     - organiser FOREIGN KEY
+    - title STRING
     - location STRING
     - description TEXT
-    - date STRING
+    - date DATETIME
 
 ## attendees_events (join table)
 
