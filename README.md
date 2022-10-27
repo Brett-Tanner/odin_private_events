@@ -5,7 +5,8 @@ A user can create events. A user can attend many events. An event can be attende
 ## User
 
 - Relations
-    - has_many :events, inverse_of: :organiser
+    - has_many :events, inverse_of: :organiser,
+                        foreign_key: "organiser_id"
     - has_and_belongs_to_many :attended_events
 
 - Columns
@@ -18,8 +19,7 @@ A user can create events. A user can attend many events. An event can be attende
 
 - Relations
     - belongs_to :organiser, class_name: "User",
-                             foreign_key: "user_id",
-                             inverse_of: :events
+                             foreign_key: "id",
     - has_and_belongs_to_many :attendees
 
 - Columns
