@@ -4,4 +4,7 @@
 <%= render @user.events %>
 
 <h2>Attending</h2>
-<%= render @user.attended_events %>
+<%= render @user.attended_events.where("date > ?", Time.now) %>
+
+<h2>Attended</h2>
+<%= render @user.attended_events.where("date < ?", Time.now) %>
