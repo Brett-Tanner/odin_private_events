@@ -1,1 +1,9 @@
 <%= render @event %>
+
+<% if @event.attendees.include?(current_user) %>
+    <p id="attending_message">
+        You're going to this event
+    </p>
+<% else %>
+    <%= button_to "Attend", new_participant_path(@event.id) %>
+<% end %>
