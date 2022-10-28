@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  resources :users
-  devise_for :users
+  devise_for :users, path_prefix: "d"
+  resources :users, only: [:index, :show]
   resources :events
 
   # Defines the root path route ("/")
