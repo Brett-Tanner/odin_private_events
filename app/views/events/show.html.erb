@@ -5,3 +5,5 @@
 <% else %>
     <%= button_to "Attend", event_participant_index_path(@event) %>
 <% end %>
+
+<%= render @event.attendees %>
