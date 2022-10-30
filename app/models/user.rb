@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_many :attended_events, through: :participants,
                                       source: :event
+  has_many :events, foreign_key: "organiser_id"
   has_many :participants, dependent: :destroy      
 
 

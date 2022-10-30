@@ -1,4 +1,6 @@
 class Event < ApplicationRecord
+  belongs_to :organiser, class_name: "User"
+
   has_many :attendees, through: :participants,
                        source: :user
   has_many :participants, dependent: :destroy
