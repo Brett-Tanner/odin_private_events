@@ -1,3 +1,7 @@
 <h1>Event List</h1>
 
-<%= render @events %>
+<h2>Upcoming Events</h2>
+<%= render Event.future %>
+
+<h2>Past Events</h2>
+<%= render Event.past %>
