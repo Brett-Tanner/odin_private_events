@@ -21,6 +21,21 @@ class EventsController < ApplicationController
     end
   end
 
+  def edit
+      
+  end
+
+  def destroy
+    event = Event.find(params[:id])
+
+    if event.destroy
+      redirect_to root_path
+      flash[:notice] = "#{event.title} was successfully cancelled"
+    else
+      flash.now = "An error occurred, #{event.title} wasn't cancelled"
+    end
+  end
+
   private
 
   def event_params

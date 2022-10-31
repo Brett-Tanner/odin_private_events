@@ -6,4 +6,9 @@
     <%= button_to "Attend", event_participant_index_path(@event) %>
 <% end %>
 
+<% if current_user == @event.organiser %>
+    <%= link_to "Edit event", edit_event_path(@event) %>
+    <%= link_to "Delete Event", event_path(@event), data: {turbo_method: :delete, confirm: "Are you sure you want to cancel this event?"} %>
+<% end %>
+
 <%= render @event.attendees %>
