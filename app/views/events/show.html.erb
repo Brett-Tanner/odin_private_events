@@ -1,20 +1,23 @@
 <%= render @event %>
 
-<% if @event.attendees.include?(current_user) %>
+<% if @event.attendees.include?(current_user) && current_user != @event.organiser %>
     <%= button_to "Stop attending", event_participant_path(@event, current_user), method: :delete %>
-<% elsif current_user == @event.organiser %>
-    <%= button_to "Attend", event_participant_index_path(@event) %>
+<% elsif current_user == @event.organiser
+    # <%= button_to "Attend", event_participant_index_path(@event) %>
 <% else %>
     <%= "Events are invite only" %>
 <% end %>
 
 <% if current_user == @event.organiser %>
     <%= link_to "Edit event", edit_event_path(@event) %>
-    <%= link_to "Delete Event", event_path(@event), data: {turbo_method: :delete, confirm: "Are you sure you want to cancel this event?"} %>
-<% end %>
+    <%# TODO: not confirming deletion %>
+    <%= link_to "Delete Event", event_path(@event), data: {turbo_method: :delete, confirm: "Are you sure you want to cancel this event?"} %> 
 
-<% if user_signed_in? %>
+    <h3>Manage Attendees</h3>
     <%= render User.all %>
+<% elsif user_signed_in? && current_user != @event.organiser %>
+    <h3>Attendees</h3>
+    <%= render @event.attendees %>
 <% else %>
     <%= "Guest list can only be seen by logged in users" %>
 <% end %>

@@ -1,7 +1,7 @@
 <div class="event">
     <h3><%= link_to event.title, event_path(event) %></h3>
     <p><%= event.organiser.name %></p>
-    <% if user_signed_in? && event.attendees.include?(current_user) %>
+    <% if user_signed_in? && (event.attendees.include?(current_user) || current_user == event.organiser) %>
         <p><%= event.location %></p>
     <% else %>
         <p>You must sign in and be attending to see the location</p>
