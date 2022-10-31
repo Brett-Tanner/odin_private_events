@@ -1,7 +1,13 @@
-<h1>Event List</h1>
-
-<h2>Upcoming Events</h2>
-<%= render Event.future %>
-
-<h2>Past Events</h2>
-<%= render Event.past %>
+<main id="root">
+    <h1>Event List</h1>
+    
+    <h2>Upcoming Events</h2>
+    <div id="upcoming_events">
+        <%= render Event.future %>
+    </div>
+    
+    <h2>Past Events</h2>
+    <div id="past_events">
+        <%= render Event.past %>
+    </div>
+</main>

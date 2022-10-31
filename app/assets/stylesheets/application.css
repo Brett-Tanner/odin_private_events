@@ -20,12 +20,13 @@
     font-family: Arial, Helvetica, sans-serif;
     --heading-size: max(20rem, 1.5vw);
     --content-size: max(12rem, 0.75vw);
-    --default-padding: 1.1vw;
+    --default-padding: 1vw;
     --header-color: rgb(43, 121, 195);
     --header-hover-color: rgb(33, 90, 143);
     --accent-color: #40444f;
     --background-color: #f8fafb;
     --default-text-color: black;
+    --border-radius: 10rem;
 }
 
 body {
@@ -45,7 +46,8 @@ h1 {
 }
 
 h2,
-h3 {
+h3,
+h4 {
     font-size: var(--heading-size);
     margin: 0;
 }
@@ -62,9 +64,10 @@ p {
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
-    align-items: center;
+    align-items: stretch;
     gap: var(--default-padding);
     box-shadow: 0 0.3vw 0.2vw var(--accent-color);
+    height: 8vh;
 }
 
 #home_nav {
@@ -73,8 +76,11 @@ p {
 
 .nav {
     padding: var(--default-padding);
+    display: flex;
+    align-items: center;
 }
 
 .nav:hover {
     background-color: var(--header-hover-color);
+    color: var(--default-text-color);
 }
