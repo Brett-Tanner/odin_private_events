@@ -18,17 +18,25 @@
     font-size: 6.25%;
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
-    --heading-size: min(20rem, 4vw);
-    --content-size: min(12rem, 3vw);
+    --heading-size: max(20rem, 1.5vw);
+    --content-size: max(12rem, 0.75vw);
     --default-padding: 1.1vw;
+    --header-color: rgb(43, 121, 195);
+    --header-hover-color: rgb(33, 90, 143);
+    --accent-color: #40444f;
+    --background-color: #f8fafb;
+    --default-text-color: black;
 }
 
 body {
     height: 100vh;
+    background-color: var(--background-color);
 }
 
-a {
+
+a, a:visited, a:hover, a:active {
     text-decoration: none;
+    color: inherit;
 }
 
 h1 {
@@ -49,4 +57,24 @@ p {
 
 #header {
     font-size: var(--heading-size);
+    background-color: var(--header-color);
+    color: var(--background-color);
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    gap: var(--default-padding);
+    box-shadow: 0 0.3vw 0.2vw var(--accent-color);
+}
+
+#home_nav {
+    flex: 1 1 auto;
+}
+
+.nav {
+    padding: var(--default-padding);
+}
+
+.nav:hover {
+    background-color: var(--header-hover-color);
 }
