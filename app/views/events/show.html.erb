@@ -2,8 +2,10 @@
 
 <% if @event.attendees.include?(current_user) %>
     <%= button_to "Stop attending", event_participant_path(@event, current_user), method: :delete %>
-<% else %>
+<% elsif current_user == @event.organiser %>
     <%= button_to "Attend", event_participant_index_path(@event) %>
+<% else %>
+    <%= "Events are invite only" %>
 <% end %>
 
 <% if current_user == @event.organiser %>
@@ -12,7 +14,7 @@
 <% end %>
 
 <% if user_signed_in? %>
-    <%= render @event.attendees %>
+    <%= render User.all %>
 <% else %>
     <%= "Guest list can only be seen by logged in users" %>
 <% end %>

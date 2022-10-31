@@ -10,10 +10,11 @@ class ParticipantController < ApplicationController
 
   def destroy
     event = Event.find(params[:event_id])
+    user = User.find(params[:id])
 
-    current_user.attended_events.delete(event)
+    user.attended_events.delete(event)
     
-    flash[:notice] = "You are no longer attending this event"
+    flash[:notice] = "#{user.name} is no longer attending this event"
     redirect_to event_path(event)
   end
 end

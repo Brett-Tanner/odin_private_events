@@ -1,3 +1,11 @@
 <div class="user">
     <h3><%= link_to user.name, user_path(user) %></h3>
+    
+    <% if current_user == @event.organiser && !@event.attendees.include?(user) %>
+        <%= button_to "Invite", event_participant_index_path(@event, user) %>
+    <% elsif current_user == @event.organiser && @event.attendees.include?(user) %>
+        <%= button_to "Un-invite", event_participant_path(@event, user), method: :delete %>
+    <% else %>
+        <%= "Only the organiser can manage the guest list" %>
+    <% end %>
 </div>
