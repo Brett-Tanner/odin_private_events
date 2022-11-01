@@ -16,7 +16,7 @@
     flex: 1 1 auto;
     padding: var(--default-padding);
     border-radius: var(--border-radius);
-    box-shadow: 0.2vw 0.3vw 0.2vw var(--accent-color);
+    box-shadow: var(--container-shadow);
     max-width: 98%;
     max-height: 30vh;
     display: flex;
@@ -30,7 +30,7 @@
 
 #upcoming_events:hover,
 #past_events:hover {
-    box-shadow: 0.2vw 0.6vw 0.4vw var(--header-color);
+    box-shadow: var(--container-hover-shadow);
 }
 
 #root .event {

@@ -1,3 +1,73 @@
+main#form {
+    height: 92vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#form_container {
+    background-color: var(--accent-color);
+    border-radius: 20rem;
+    box-shadow: var(--container-shadow);
+    width: 90%;
+    height: 90%;
+    padding: var(--default-padding);
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+}
+
+#form_container label,
+#form_container #devise_options,
+#form_container > h2 {
+    color: var(--background-color);
+}
+
 form {
+    display: flex;
+    flex-flow: column wrap;
+    gap: var(--default-padding);
+    font-size: var(--heading-size);
+}
+
+.field {
+    display: flex;
+    flex-flow: column wrap;
+    gap: var(--default-padding);
+}
+
+.field input,
+textarea {
+    border: none;
+    border-radius: 10rem;
+    background-color: var(--header-color);
+}
+
+.field input {
+    height: 3vw;
+    width: 40vw;
+}
+
+input:focus-visible,
+textarea:focus-visible {
+    box-shadow: var(--container-hover-shadow);
+    outline: 0.5rem solid var(--background-color);
+}
+
+.actions input {
+    background-color: var(--header-color);
+    border-radius: 10rem;
+    border: 3rem outset var(--header-hover-color);
+    padding: 0.5vw;
+}
+
+.actions input:hover {
+    background-color: var(--header-hover-color);
+}
+
+#devise_options {
     font-size: var(--heading-size);
 }
