@@ -3,11 +3,11 @@
     
     <h2>Upcoming Events</h2>
     <div id="upcoming_events">
-        <%= render Event.future %>
+        <%= render Event.future.order(date: :desc) %>
     </div>
     
     <h2>Past Events</h2>
     <div id="past_events">
-        <%= render Event.past %>
+        <%= render Event.past.order(date: :desc) %>
     </div>
 </main>

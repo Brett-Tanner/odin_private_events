@@ -1,9 +1,9 @@
 <%= link_to event_path(event), class: "event" do %>    
     <div class="event_header">
         <h3><%= event.title %></h3>
-        <h4><%= event.organiser.name %></h4>
+        <h4>Organised by <%= event.organiser.name %></h4>
         <% if user_signed_in? && (event.attendees.include?(current_user) || current_user == event.organiser) %>
-            <h4><%= event.location %></h4>
+            <h4>Location: <%= event.location %></h4>
         <% else %>
             <h4>You must sign in and be attending to see the location</h4>
         <% end %>
@@ -14,6 +14,6 @@
     </p>
 
     <p class="event_date">
-        <%= event.date %>
+        Event date: <%= event.date %>
     </p>
 <% end %>
