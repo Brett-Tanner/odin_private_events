@@ -1,25 +1,25 @@
 <%= form_with model: @event do |form| %>
-    <div>
+    <div class="field">
         <%= form.label :title, "Title" %>
         <%= form.text_field :title %>
     </div>
 
-    <div>
+    <div class="field">
         <%= form.label :location, "Location" %>
         <%= form.text_field :location %>
     </div>
 
-    <div>
+    <div class="field">
         <%= form.label :description, "Description" %>
         <%= form.text_area :description %>
     </div>
 
-    <div>
+    <div class="date_field">
         <%= form.label :date, "Date" %>
         <%= form.datetime_select :date %>
     </div>
 
-    <div>
+    <div class="actions">
         <%= form.submit %>
     </div>
 <% end %>

@@ -27,10 +27,13 @@ main#form {
 }
 
 form {
+    flex: 1 1 auto;
     display: flex;
     flex-flow: column wrap;
     gap: var(--default-padding);
     font-size: var(--heading-size);
+    justify-content: center;
+    align-items: center;
 }
 
 .field {
@@ -51,20 +54,41 @@ textarea {
     width: 40vw;
 }
 
+.field textarea {
+    width: 40vw;
+    height: 15vw;
+}
+
 input:focus-visible,
 textarea:focus-visible {
     box-shadow: var(--container-hover-shadow);
     outline: 0.5rem solid var(--background-color);
 }
 
-.actions input {
+#user_remember_me {
+    width: 1.5vw;
+    height: 1.5vw;
+    align-self: center;
+}
+
+.actions input,
+#event_date_1i,
+#event_date_2i,
+#event_date_3i,
+#event_date_4i,
+#event_date_5i {
     background-color: var(--header-color);
     border-radius: 10rem;
     border: 3rem outset var(--header-hover-color);
     padding: 0.5vw;
 }
 
-.actions input:hover {
+.actions input:hover,
+#event_date_1i:hover,
+#event_date_2i:hover,
+#event_date_3i:hover,
+#event_date_4i:hover,
+#event_date_5i:hover {
     background-color: var(--header-hover-color);
 }
 
