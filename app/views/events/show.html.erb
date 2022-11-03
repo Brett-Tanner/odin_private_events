@@ -1,23 +1,35 @@
-<%= render @event %>
+<main id="show">
+    <div id="event_container">
+        <%= render @event, show: true %>
+    
+        <% if @event.attendees.include?(current_user) && current_user != @event.organiser %>
+            <%= button_to "Stop attending", event_participant_path(@event, current_user), method: :delete %>
+        <% elsif current_user == @event.organiser
+            # <%= button_to "Attend", event_participant_index_path(@event) %>
+        <% else %>
+            <h3>Events are invite only</h3>
+        <% end %>
+    </div>
+    
+    <% if current_user == @event.organiser %>
+        <div id="event_management">
+            <%= button_to "Edit event", edit_event_path(@event), method: :get %>
+            <%= button_to "Delete Event", event_path(@event), data: {turbo_confirm: "Are you sure you want to cancel this event?", turbo_method: :delete} %>
+        </div>
+        <div id="guest_list">
+            <h3>Manage Attendees</h3>
+            <%= render User.all %>
+        </div>
 
-<% if @event.attendees.include?(current_user) && current_user != @event.organiser %>
-    <%= button_to "Stop attending", event_participant_path(@event, current_user), method: :delete %>
-<% elsif current_user == @event.organiser
-    # <%= button_to "Attend", event_participant_index_path(@event) %>
-<% else %>
-    <%= "Events are invite only" %>
-<% end %>
-
-<% if current_user == @event.organiser %>
-    <%= link_to "Edit event", edit_event_path(@event) %>
-    <%# TODO: not confirming deletion %>
-    <%= link_to "Delete Event", event_path(@event), data: {turbo_method: :delete, confirm: "Are you sure you want to cancel this event?"} %> 
-
-    <h3>Manage Attendees</h3>
-    <%= render User.all %>
-<% elsif user_signed_in? && current_user != @event.organiser %>
-    <h3>Attendees</h3>
-    <%= render @event.attendees %>
-<% else %>
-    <%= "Guest list can only be seen by logged in users" %>
-<% end %>
+    <% elsif user_signed_in? && current_user != @event.organiser %>
+        <div id="guest_list">
+            <h3>Attendees</h3>
+            <%= render @event.attendees %>
+        </div>
+    <% else %>
+        <div id="guest_list">
+            <h3>Attendees</h3>
+            <h4>Guest list can only be seen by logged in users</h4>
+        </div>
+    <% end %>
+</main>

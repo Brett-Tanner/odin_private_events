@@ -1,0 +1,82 @@
+main#show {
+    margin-top: var(--default-padding);
+    width: 100vw;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-around;
+    align-items: center;
+    gap: var(--default-padding);
+}
+
+main#show button {
+    background-color: var(--header-color);
+    border-radius: 10rem;
+    border: 3rem outset var(--header-hover-color);
+    padding: 0.5vw;
+}
+
+main#show button:hover {
+    background-color: var(--header-hover-color);
+}
+
+#event_container,
+#event_management,
+#guest_list {
+    background-color: var(--accent-color);
+    border-radius: 20rem;
+    box-shadow: var(--container-shadow);
+    width: 90%;
+    height: max-content;
+    padding: var(--default-padding);
+    text-align: center;
+    color: var(--background-color);
+}
+
+#event_container,
+#event_management {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#event_container,
+#guest_list {
+    overflow-y: scroll;
+}
+
+.show.event {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    padding: var(--default-padding);
+    gap: var(--default-padding);
+}
+
+.show.event_description {
+    width: 60%;
+    font-size: calc(var(--content-size) * 2);
+}
+
+#event_management {
+    flex-flow: row wrap;
+}
+
+#guest_list {
+    overflow: scroll;
+    display: grid;
+    grid-template-columns: repeat(4 1fr);
+    grid-auto-rows: 1fr;
+    gap: var(--default-padding);
+}
+
+#guest_list h3 {
+    grid-column: span 4;
+}
+
+.user {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    gap: var(--default-padding);
+}

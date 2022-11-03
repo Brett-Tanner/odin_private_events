@@ -1,19 +1,39 @@
-<%= link_to event_path(event), class: "event" do %>    
-    <div class="event_header">
-        <h3><%= event.title %></h3>
-        <h4>Organised by <%= event.organiser.name %></h4>
-        <% if user_signed_in? && (event.attendees.include?(current_user) || current_user == event.organiser) %>
-            <h4>Location: <%= event.location %></h4>
-        <% else %>
-            <h4>You must sign in and be attending to see the location</h4>
-        <% end %>
+<% if local_assigns[:show] %>
+    <div class="show event">
+        <div class="show event_header">
+            <h3><%= event.title %></h3>
+            <h4>Organised by <%= event.organiser.name %></h4>
+            <% if user_signed_in? && (event.attendees.include?(current_user) || current_user == event.organiser) %>
+                <h4>Location: <%= event.location %></h4>
+            <% else %>
+                <h4>You must sign in and be attending to see the location</h4>
+            <% end %>
+        </div>
+        <p class="show event_description">
+            <%= event.description %>
+        </p>
+        <p class="show event_date">
+            Event date: <%= event.date %>
+        </p>
     </div>
+<% else %>
+    <%= link_to event_path(event), class: "event" do %>    
+        <div class="event_header">
+            <h3><%= event.title %></h3>
+            <h4>Organised by <%= event.organiser.name %></h4>
+            <% if user_signed_in? && (event.attendees.include?(current_user) || current_user == event.organiser) %>
+                <h4>Location: <%= event.location %></h4>
+            <% else %>
+                <h4>You must sign in and be attending to see the location</h4>
+            <% end %>
+        </div>
 
-    <p class="event_description">
-        <%= event.description %>
-    </p>
+        <p class="event_description">
+            <%= event.description %>
+        </p>
 
-    <p class="event_date">
-        Event date: <%= event.date %>
-    </p>
+        <p class="event_date">
+            Event date: <%= event.date %>
+        </p>
+    <% end %>
 <% end %>
