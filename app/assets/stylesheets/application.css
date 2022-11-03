@@ -86,3 +86,18 @@ p {
     background-color: var(--header-hover-color);
     color: var(--default-text-color);
 }
+
+.notice,
+.alert {
+    font-size: var(--heading-size);
+    text-align: center;
+    height: fit-content;
+}
+
+.notice {
+    background-color: lightgreen;
+}
+
+.alert {
+    background-color: lightcoral;
+}

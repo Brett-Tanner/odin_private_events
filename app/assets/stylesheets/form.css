@@ -57,6 +57,7 @@ textarea {
 .field textarea {
     width: 40vw;
     height: 15vw;
+    padding: var(--default-padding);
 }
 
 input:focus-visible,
