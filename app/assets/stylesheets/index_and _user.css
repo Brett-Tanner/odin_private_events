@@ -1,5 +1,5 @@
-#root {
-    height: 88vh;
+#root,
+#user_show {
     padding: var(--default-padding);
     display: flex;
     flex-flow: column wrap;
@@ -7,18 +7,20 @@
     gap: var(--default-padding);
 }
 
-#root > h1 {
+#root > h1,
+#user_show h1 {
     text-align: center;
 }
 
 #upcoming_events,
-#past_events {
+#past_events,
+#organised_events {
     flex: 1 1 auto;
     padding: var(--default-padding);
     border-radius: var(--border-radius);
     box-shadow: var(--container-shadow);
     max-width: 98%;
-    max-height: 30vh;
+    height: 30vh;
     display: flex;
     flex-flow: row nowrap;
     align-items: stretch;
@@ -29,11 +31,13 @@
 }
 
 #upcoming_events:hover,
-#past_events:hover {
+#past_events:hover,
+#organised_events:hover {
     box-shadow: var(--container-hover-shadow);
 }
 
-#root .event {
+#root .event,
+#user_show .event {
     flex: 0 0 auto;
     width: 22vw;
     border-radius: var(--border-radius);
@@ -44,11 +48,13 @@
     overflow: hidden;
 }
 
-#root .event:hover {
+#root .event:hover,
+#user_show .event:hover {
     z-index: 3;
     box-shadow: 0 0 1vw var(--header-color);
 }
 
-#root .event h4 {
+#root .event h4,
+#user_show .event h4 {
     font-size: var(--content-size);
 }

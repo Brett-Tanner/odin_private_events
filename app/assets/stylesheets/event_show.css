@@ -56,6 +56,7 @@ main#show button:hover {
 .show.event_description {
     width: 60%;
     font-size: calc(var(--content-size) * 2);
+    overflow: hidden;
 }
 
 #event_management {

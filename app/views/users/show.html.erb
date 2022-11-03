@@ -1,10 +1,18 @@
-<h1><%= @user.name %></h1>
-
-<h2>Organising</h2>
-<%= render @user.events %>
-
-<h2>Attending</h2>
-<%= render @user.attended_events.where("date > ?", Time.now) %>
-
-<h2>Attended</h2>
-<%= render @user.attended_events.where("date < ?", Time.now) %>
+<main id="user_show">
+    <h1><%= @user.name %></h1>
+    
+    <h2>Organising</h2>
+    <div id="organised_events">
+        <%= render @user.events %>
+    </div>
+    
+    <h2>Attending</h2>
+    <div id="upcoming_events">
+        <%= render @user.attended_events.where("date > ?", Time.now) %>
+    </div>
+    
+    <h2>Attended</h2>
+    <div id="past_events">
+        <%= render @user.attended_events.where("date < ?", Time.now) %>
+    </div>
+</main>
