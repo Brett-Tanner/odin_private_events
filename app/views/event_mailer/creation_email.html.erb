@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+</head>
+<body>
+    <h1>Hi <%= @organiser.name %>, you've successfully created <%= @event.title %> on <%= @event.date %>!</h1>
+    <p>You can modify your event <%= link_to "here", event_url(@event) %>.</p>
+    <p>We hope your event is a success, have a great day!</p>
+</body>
+</html>
